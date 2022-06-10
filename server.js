@@ -6,7 +6,7 @@ const req = require('express/lib/request')
 require('dotenv').config()
 
 const app = express()
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
@@ -93,6 +93,6 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
   }
 )
 
-app.listen(process.env.PORT || PORT, () => {
-  console.log(`The server is running on Port:${PORT}.`)
+app.listen(PORT, () => {
+  //console.log(`The server is running on Port:${PORT}.`)
 })
